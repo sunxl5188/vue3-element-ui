@@ -1,4 +1,4 @@
-# vue3-element-ui
+# vue3-element-plus
 
 ## Project setup
 ```
