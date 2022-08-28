@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HelloWorld />
     <el-button
       v-for="(o, index) in girl"
       :key="o"
@@ -23,6 +24,7 @@ import {
   onUpdated,
   onBeforeUnmount,
   onErrorCaptured,
+  defineComponent,
 } from "vue";
 
 interface dataProps {
@@ -31,7 +33,7 @@ interface dataProps {
   girlFun: (index: number) => void;
 }
 
-export default {
+export default defineComponent({
   setup() {
     console.log("1-开始创建组件-----setup()");
     const data: dataProps = reactive({
@@ -69,5 +71,5 @@ export default {
       ...refData,
     };
   },
-};
+});
 </script>
