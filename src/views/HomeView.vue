@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+import { fetch, post } from "../axios/index";
 import {
   reactive,
   toRefs,
@@ -50,6 +51,12 @@ export default defineComponent({
       console.log("2-组件挂载到页面之前执行-----onBeforeMount");
     });
     onMounted(() => {
+      fetch("index/index/login").then((res: any) => {
+        console.log(res);
+      });
+      post("index/index/login").then((res: any) => {
+        console.log(res);
+      });
       console.log("3-组件挂载到页面之后执行-----onMounted");
     });
     onUnmounted(() => {
