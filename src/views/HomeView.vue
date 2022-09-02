@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HelloWorld />
     <el-button
       v-for="(o, index) in girl"
       :key="o"
@@ -14,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { fetch, post } from "../axios/index";
+import { fetch } from "@/api";
 import {
   reactive,
   toRefs,
@@ -52,9 +51,6 @@ export default defineComponent({
     });
     onMounted(() => {
       fetch("index/index/login").then((res: any) => {
-        console.log(res);
-      });
-      post("index/index/login").then((res: any) => {
         console.log(res);
       });
       console.log("3-组件挂载到页面之后执行-----onMounted");

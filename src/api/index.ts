@@ -164,10 +164,9 @@ instance.interceptors.request.use((config) => {
   console.log(config);
   removePending(config);
   config.cancelToken = new CancelToken((c) => {
-    console.log(config);
     pending.push({
       url: config.url,
-      method: "post",
+      method: config.method ? "get" : undefined,
       params: config.params,
       data: config.data,
       cancel: c,
