@@ -23,3 +23,5 @@ pnpm-debug.log*
 *.sw?
 *.map
 *.js
+*.vue.js
+*.vue.js.map
