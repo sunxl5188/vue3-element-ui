@@ -46,6 +46,7 @@ export default defineComponent({
   components: { MyTable },
   setup() {
     console.log("1-开始创建组件-----setup()");
+
     const data: dataProps = reactive({
       title: "我是了组件",
       girl: ["大脚", "小闫", "小妹"],
@@ -131,28 +132,19 @@ export default defineComponent({
         {
           label: "选择",
           type: "selection",
-          fixed: true,
         },
         {
           label: "标题",
           prop: "title",
-          type: "filter",
-          width: 200,
-          filters: [
-            { text: "标题1", value: "标题1" },
-            { text: "标题2", value: "标题2" },
-          ],
         },
         {
           label: "状态",
           customRender: "status",
           sortable: "custom",
-          width: 200,
         },
         {
           label: "创建时间",
           prop: "createTime",
-          width: 300,
         },
       ],
       handleSelect: (e): void => {
