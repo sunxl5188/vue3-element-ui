@@ -110,7 +110,7 @@ export default defineComponent({
     },
     total: {
       type: Number,
-      default: 1000,
+      default: 0,
     },
     height: {
       type: Number || String,
