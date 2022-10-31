@@ -85,6 +85,7 @@ import { defineComponent, reactive, toRefs } from "vue";
 
 interface dataType {
   indexMethod: (index: number) => number;
+  handleSelect: (data: any) => void;
   handleSortChange: (data: object) => void;
   handleFilter: (value: string, row: object) => boolean;
   handleCurrentChange: (page: number) => void;
@@ -97,7 +98,7 @@ export default defineComponent({
       required: true,
     },
     columns: {
-      type: Array,
+      type: Array as any,
       required: true,
     },
     currentPage: {
@@ -128,7 +129,7 @@ export default defineComponent({
         return (props.currentPage - 1) * props.pageSize + index + 1;
       },
       // 选择单选，全选触发
-      handleSelect: (data): void => {
+      handleSelect: (data: any): void => {
         context.emit("onSelect", data);
       },
       // 排序
