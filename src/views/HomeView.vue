@@ -40,6 +40,7 @@ interface dataProps {
   source: object[];
   columns: object[];
   handleSelect: (e: any) => void;
+  handleScroll: (e: any) => void;
 }
 
 export default defineComponent({
@@ -53,6 +54,9 @@ export default defineComponent({
       selectGirl: "",
       girlFun: (id: number) => {
         data.selectGirl = data.girl[id];
+      },
+      handleScroll: (e) => {
+        console.log(e);
       },
       source: [
         {
@@ -179,3 +183,9 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped lang="scss">
+.ep-bg-purple {
+  background: #000;
+  height: 100%;
+}
+</style>

@@ -1,3 +1,4 @@
+const path = require("path");
 const { defineConfig } = require("@vue/cli-service");
 const AutoImport = require("unplugin-auto-import/webpack");
 const Components = require("unplugin-vue-components/webpack");
@@ -14,6 +15,15 @@ module.exports = defineConfig({
         resolvers: [ElementPlusResolver()],
       }),
     ],
+  },
+  pluginOptions: {
+    // less自动注入
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: [
+        //path.join(__dirname, "./src/assets/styles/variables.less"),
+      ],
+    },
   },
   devServer: {
     proxy: {
