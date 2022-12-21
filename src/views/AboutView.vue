@@ -1,27 +1,25 @@
 <template>
   <div style="padding-top: 100px">
-    <el-dropdown split-button type="primary" @click="handleClick">
-      Dropdown List
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item>Action 1</el-dropdown-item>
-          <el-dropdown-item>Action 2</el-dropdown-item>
-          <el-dropdown-item>Action 3</el-dropdown-item>
-          <el-dropdown-item>Action 4</el-dropdown-item>
-          <el-dropdown-item>Action 5</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
+    <el-button type="primary" @click="handleClick">Primary</el-button>
+    <div
+      style="width: 500px; height: 400px"
+      id="aa"
+      v-loading="loading"
+      element-loading-text="数据加载中"
+      element-loading-spinner=""
+      element-loading-background="rgba(0,0,0,0.2)"
+    ></div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { Edit, Loading, ArrowDown } from "@element-plus/icons-vue";
-import { ref, reactive } from "vue";
+import { ElMessage, ElMessageBox, ElLoading } from "element-plus";
+import { ref, reactive, h } from "vue";
 
 const pageSize = ref(10);
-const currentPage = ref(1);
-const endTime = ref();
+const activeName = ref("1");
+const loading = ref(true);
 const textarea = ref(0);
 const filterMethod = (e) => {
   console.log(e);
@@ -31,6 +29,9 @@ const sizeChange = (e) => {
 };
 
 const handleClick = (e) => {
+  console.log(e);
+};
+const handleChange = (e) => {
   console.log(e);
 };
 
