@@ -205,7 +205,7 @@ instance.interceptors.response.use(
 export const fetch = (url: string, params?: object) => {
   return new Promise((resolve, reject) => {
     instance
-      .get(url, params)
+      .get(url, { params })
       .then((response) => resolve(response))
       .catch((error) => reject(error));
   });
@@ -214,13 +214,13 @@ export const fetch = (url: string, params?: object) => {
 /**
  * @post方法~添加数据
  * @param url
- * @param params
+ * @param data
  * @returns {Promise<unknown>}
  */
-export const post = (url: string, params: object) => {
+export const post = (url: string, data: object) => {
   return new Promise((resolve, reject) => {
     instance
-      .post(url, params)
+      .post(url, { data })
       .then((response) => resolve(response))
       .catch((error) => reject(error));
   });

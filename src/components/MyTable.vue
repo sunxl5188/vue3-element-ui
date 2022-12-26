@@ -15,7 +15,7 @@
           :label="item.label"
           type="index"
           width="60"
-          align="center"
+          :align="'center'"
           :index="indexMethod"
           :fixed="item.fixed || false"
         ></el-table-column>
@@ -24,7 +24,7 @@
           v-if="item.type === 'selection'"
           type="selection"
           width="60"
-          align="center"
+          :align="'center'"
           :fixed="item.fixed || false"
         >
         </el-table-column>
