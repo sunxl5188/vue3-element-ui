@@ -5,8 +5,11 @@
       :height="height"
       :border="border"
       style="width: 100%"
+      :default-expand-all="false"
+      row-key="id"
       @selection-change="handleSelect"
       @sort-change="handleSortChange"
+      @expand-change="handleExpandChange"
     >
       <template v-for="(item, index) in columns" :key="index">
         <!--序号-->
@@ -14,11 +17,15 @@
           v-if="item.type === 'idx'"
           :label="item.label"
           type="index"
-          width="60"
+          width="460"
           :align="'center'"
           :index="indexMethod"
           :fixed="item.fixed || false"
-        ></el-table-column>
+        >
+          <template v-slot="scope">
+            {{ scope.row }}
+          </template>
+        </el-table-column>
         <!--选择字段-->
         <el-table-column
           v-if="item.type === 'selection'"
@@ -89,6 +96,7 @@ interface dataType {
   handleSortChange: (data: object) => void;
   handleFilter: (value: string, row: object) => boolean;
   handleCurrentChange: (page: number) => void;
+  handleExpandChange: (row: object, expanded: boolean) => void;
 }
 
 export default defineComponent({
@@ -126,6 +134,8 @@ export default defineComponent({
     const data: dataType = reactive({
       // 索引
       indexMethod: (index) => {
+        console.log(index);
+
         return (props.currentPage - 1) * props.pageSize + index + 1;
       },
       // 选择单选，全选触发
@@ -144,6 +154,11 @@ export default defineComponent({
       handleCurrentChange: (page: number) => {
         // console.log(page);
         context.emit("onPageChange", page);
+      },
+      // 当用户对某一行展开或者关闭的时候会触发该事件
+      handleExpandChange: (row: object, expanded: boolean) => {
+        console.log(row);
+        console.log(expanded);
       },
     });
 
