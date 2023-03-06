@@ -142,12 +142,12 @@ export default defineComponent({
       ],
       columns: [
         {
-          label: "序号",
-          type: "idx",
-        },
-        {
           label: "选择",
           type: "selection",
+        },
+        {
+          label: "序号",
+          type: "idx",
         },
         {
           label: "标题",

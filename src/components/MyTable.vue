@@ -17,14 +17,11 @@
           v-if="item.type === 'idx'"
           :label="item.label"
           type="index"
-          width="460"
+          width="55"
           :align="'center'"
           :index="indexMethod"
           :fixed="item.fixed || false"
         >
-          <template v-slot="scope">
-            {{ scope.row }}
-          </template>
         </el-table-column>
         <!--选择字段-->
         <el-table-column
@@ -134,8 +131,6 @@ export default defineComponent({
     const data: dataType = reactive({
       // 索引
       indexMethod: (index) => {
-        console.log(index);
-
         return (props.currentPage - 1) * props.pageSize + index + 1;
       },
       // 选择单选，全选触发
