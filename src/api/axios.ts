@@ -197,7 +197,7 @@ instance.interceptors.response.use(
 );
 
 /**
- * @get方法~查询数据
+ * @fetch方法~查询数据
  * @param url
  * @param params
  * @returns {Promise<unknown>}
